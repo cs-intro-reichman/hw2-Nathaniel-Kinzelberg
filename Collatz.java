@@ -1,44 +1,39 @@
 public class Collatz {
     public static void main(String[] args) {
-        // Parse the maximum seed value and mode
-        int maxSeed = Integer.parseInt(args[0]);
-        String mode = args[1];
+		
+		int firstNumber = Integer.parseInt(args[0]);
+		int currentNumber = 0;
 
-        boolean verbose = mode.equals("v");
-        boolean allReachedOne = true;
-
-        for (int seed = 1; seed <= maxSeed; seed++) {
-            int count = 1;  // Start count at 1 since we already have the initial seed
-            int current = seed;
-            StringBuilder sequence = new StringBuilder();  // To hold the sequence of numbers
-
-            // Add the first number (seed) to the sequence
-            sequence.append(current);
-
-            // Generate hailstone sequence for the current seed
-            while (current != 1) {
-                if (current % 2 == 0) {
-                    current /= 2;  // If even, divide by 2
-                } else {
-                    current = 3 * current + 1;  // If odd, multiply by 3 and add 1
-                }
-                count++;  // Increment the count for each step
-
-                sequence.append(" ").append(current);  // Append the next number in the sequence
-            }
-
-            // Print the full sequence and the number of steps in verbose mode
-            if (verbose) {
-                System.out.println(sequence.toString() + " (" + count + ")");
-            }
-
-            // Check if every sequence up to N has reached 1
-            if (current != 1) {
-                allReachedOne = false;
-            }
-        }
-
-        // Summary line for concise mode or after verbose output
-        System.out.println("Every one of the first " + maxSeed + " hailstone sequences reached 1.");
+		for (int i = 1; i >= firstNumber; i++){
+			
+			currentNumber = i;
+			System.out.print(currentNumber + " ");
+			
+			if(currentNumber == 1){			
+				currentNumber = (currentNumber*3) + 1;			
+					while(currentNumber != 1){		
+						System.out.print(currentNumber + " ");
+							if (currentNumber%2 == 0){
+								currentNumber = currentNumber/2;
+								System.out.print(currentNumber + " ");}}
+			}else{
+				if (currentNumber%2 == 0){
+					currentNumber = currentNumber/2;
+					System.out.print(currentNumber + " ");
+				} else {
+					currentNumber = (currentNumber*3) + 1;
+					System.out.print(currentNumber + " ");
+							}
+					}
+					System.out.print("Every one of the first " + firstNumber + " hailstone sequences reached 1.")
+		}
     }
 }
+// 1 (1)
+// 2 1 (2)
+// 3 10 5 16 8 4 2 1 (8)
+// 4 2 1 (3)
+// 5 16 8 4 2 1 (6)
+// 6 3 10 5 16 8 4 2 1 (9)
+// 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 (17)
+// Every one of the first 7 hailstone sequences reached 1.
