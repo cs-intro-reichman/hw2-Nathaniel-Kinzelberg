@@ -25,9 +25,11 @@ public class Collatz {
 				if (currentNumber%2 == 0){	//find if even
 					currentNumber = currentNumber/2; //proceeds with formula
 					System.out.print(currentNumber + " "); //prints number
+					nOn++;
 				} else {									//if odd
 					currentNumber = (currentNumber*3) + 1; //proceeds with formula	
 					System.out.print(currentNumber + " "); //prints number
+					nOn++;
 							}
 					}
 					System.out.println("(" + nOn + ")");
