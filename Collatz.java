@@ -1,43 +1,46 @@
 public class Collatz {
     public static void main(String[] args) {
-		
-		int firstNumber = Integer.parseInt(args[0]);
-		int currentNumber = 0;
-		int nOn = 0; // Number Of Numbers
+        
+        int firstNumber = Integer.parseInt(args[0]);
+        int currentNumber = 0;
+        int nOn = 0; // Number of Numbers
 
-		for (int i = 1; i <= firstNumber; i++){
-			
-			currentNumber = i;
-			System.out.print(currentNumber + " ");
-			
-			if(currentNumber == 1){			// checks only the first 1 and creates a specific outcome
-				currentNumber = (currentNumber*3) + 1;			
-					while(currentNumber != 1){		
-						System.out.print(currentNumber + " ");
-							if (currentNumber%2 == 0){
-								currentNumber = currentNumber/2;
-								System.out.print(currentNumber + " ");
-								nOn++;
-							}
-							System.out.println("(" + nOn + ")");	
-							}
-			}else{							// for all other cases
-				if (currentNumber%2 == 0){	//find if even
-					currentNumber = currentNumber/2; //proceeds with formula
-					System.out.print(currentNumber + " "); //prints number
-					nOn++;
-				} else {									//if odd
-					currentNumber = (currentNumber*3) + 1; //proceeds with formula	
-					System.out.print(currentNumber + " "); //prints number
-					nOn++;
-							}
-					}
-					System.out.println("(" + nOn + ")");
-					nOn = 0;
-					} 			
-					System.out.print("Every one of the first " + firstNumber + " hailstone sequences reached 1.");
+        for (int i = 1; i <= firstNumber; i++) {
+            
+            currentNumber = i;
+            System.out.print(currentNumber + " ");
+            
+            if (currentNumber == 1) { // Special case for when the number is 1
+
+                    // When currentNumber reaches 1, print the final part
+                    System.out.println("4 2 1 (4)");
+                
+				
+            } else {
+                // For all other numbers
+                while (currentNumber != 1) {
+                    if (currentNumber % 2 == 0) { // Check if even
+                        currentNumber = currentNumber / 2; // Apply formula
+                        System.out.print(currentNumber + " "); // Print number
+                        nOn++;
+                    } else { // If odd
+                        currentNumber = (currentNumber * 3) + 1; // Apply formula
+                        System.out.print(currentNumber + " "); // Print number
+                        nOn++;
+                    }
+                }
+                System.out.println("(" + (nOn + 1) + ")");
+            }
+            
+            // Reset the counter for the next sequence
+            nOn = 0;
+        }  
+        
+        // Summary statement
+        System.out.print("Every one of the first " + firstNumber + " hailstone sequences reached 1.");
     }
 }
+
 // 1 (1)
 // 2 1 (2)
 // 3 10 5 16 8 4 2 1 (8)
