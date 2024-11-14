@@ -17,7 +17,7 @@ public class Collatz {
 							if (currentNumber%2 == 0){
 								currentNumber = currentNumber/2;
 								System.out.print(currentNumber + " ");
-								non++;
+								nOn++;
 							}
 							System.out.println("(" + nOn + ")");	
 							}
