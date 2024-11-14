@@ -7,9 +7,9 @@ public class TimeCalc {
         int minutesToAdd = Integer.parseInt(args[1]);
 
         // Initial input display for debugging
-        System.out.println("Hours: " + hh);
-        System.out.println("Minutes: " + mm);
-        System.out.println("Minutes to add: " + minutesToAdd);
+        // System.out.println("Hours: " + hh);
+        // System.out.println("Minutes: " + mm);
+        // System.out.println("Minutes to add: " + minutesToAdd);
 
         // Calculate total minutes from current time and minutesToAdd
         int totalMinutes = (hh * 60) + mm + minutesToAdd;
@@ -19,8 +19,8 @@ public class TimeCalc {
         int newMinutes = totalMinutes % 60;
 
         // Uncomment for debugging
-        System.out.println("New hours: " + newHours);
-        System.out.println("New minutes: " + newMinutes);
+        // System.out.println("New hours: " + newHours);
+        // System.out.println("New minutes: " + newMinutes);
 
         // Format the output with leading zeros
         System.out.printf("%02d:%02d\n", newHours, newMinutes);

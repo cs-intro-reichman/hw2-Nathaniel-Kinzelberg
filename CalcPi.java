@@ -22,7 +22,13 @@ public class CalcPi {
 
         // Multiply the result by 4 to approximate π
         piApproximation *= 4;
+		
 
         // Display the approximated value of π
-        System.out.println("pi, approximated: " + piApproximation);    }
+        System.out.println("pi, approximated:     " + piApproximation);    }
 }
+
+// pi according to Java: 3.141592653589793
+// pi according to Java: 3.141592653589793
+// pi, approximated:     3.466666666666667
+// pi, approximated: 3.466666666666667

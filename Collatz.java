@@ -8,12 +8,12 @@ public class Collatz {
         boolean allReachedOne = true;
 
         for (int seed = 1; seed <= maxSeed; seed++) {
-            int count = 0;
+            int count = 1;  // Start count at 1 since we already have the initial seed
             int current = seed;
+            StringBuilder sequence = new StringBuilder();  // To hold the sequence of numbers
 
-            if (verbose) {
-                System.out.print(current + " ");
-            }
+            // Add the first number (seed) to the sequence
+            sequence.append(current);
 
             // Generate hailstone sequence for the current seed
             while (current != 1) {
@@ -22,16 +22,14 @@ public class Collatz {
                 } else {
                     current = 3 * current + 1;  // If odd, multiply by 3 and add 1
                 }
-                count++;
+                count++;  // Increment the count for each step
 
-                if (verbose) {
-                    System.out.print(current + " ");
-                }
+                sequence.append(" ").append(current);  // Append the next number in the sequence
             }
 
-            // Print the step count in verbose mode
+            // Print the full sequence and the number of steps in verbose mode
             if (verbose) {
-                System.out.println("(" + (count + 1) + ")");
+                System.out.println(sequence.toString() + " (" + count + ")");
             }
 
             // Check if every sequence up to N has reached 1

@@ -16,7 +16,7 @@ public class Cheers {
             // Print each letter cheer line with appropriate "a" or "an"
             for (int i = 0; i < cheerWord.length(); i++) {
                 char letter = cheerWord.charAt(i);
-                String article = anLetters.indexOf(letter) >= 0 ? "an" : "a";
+                String article = anLetters.indexOf(letter) >= 0 ? "an" : "a ";
                 System.out.println("Give me " + article + " " + letter + ": " + letter + "!");
             }
     
